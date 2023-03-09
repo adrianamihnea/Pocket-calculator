@@ -1,11 +1,14 @@
 package org.example;
-import java.awt.*;
-import java.util.concurrent.Flow;
+
 import javax.swing.*;
-import javax.swing.border.Border;
+import java.awt.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class GUI extends JPanel {
 
+    JTextField tf1;
+    JTextField tf2;
     public GUI() {
         JFrame frame = new JFrame ("Calculator polinomial");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -16,9 +19,9 @@ public class GUI extends JPanel {
         JLabel l1 = new JLabel ("Polinom 1");
         JLabel l2 = new JLabel ("Polinom 2");
         JLabel l3 = new JLabel ("Rezultat");
-        JTextField tf1 = new JTextField();
+        tf1 = new JTextField();
         tf1.setColumns(20);
-        JTextField tf2 = new JTextField();
+        tf2 = new JTextField();
         tf2.setColumns(20);
         JTextField tf3 = new JTextField();
         tf3.setColumns(20);
@@ -50,7 +53,39 @@ public class GUI extends JPanel {
         p.setLayout(new BoxLayout(p, BoxLayout.PAGE_AXIS));
         frame.setContentPane(p);
         frame.setVisible(true);
+
+        tf1.setText("2x^2+4x^3");
+        tf2.setText("5x^6+7");
+        setMapFromRegex(tf1);
+        setMapFromRegex(tf2);
     }
 
+    public org.example.Polynom setMapFromRegex(JTextField tf) {
+        org.example.Polynom poly = null;
+        String stringPoly = tf.getText();
+        String polyPattern = "([+-]?(?:(?:\\d+x\\^\\d+)|(?:\\d+x)|(?:\\d+)|(?:x)))";
+        Pattern pattern = Pattern.compile(polyPattern);
+        Matcher matcher = pattern.matcher(stringPoly);
+        poly = new org.example.Polynom();
+        int x=0;
+        while (matcher.find()) {
+            // coefAndPower[1] = power -> key
+            // coefAndPower[0] = coefficient -> value
+            String[] coefAndPower = new String[2];
+            try {
+                // matcher.group(1) - a group like 4x^2
+                coefAndPower = matcher.group(1).split("x\\^?", 2);
+                if(coefAndPower[1] == "")
+                    coefAndPower[1] = "1";
+                poly.polynomList.put(Integer.parseInt(coefAndPower[1]), Integer.parseInt(coefAndPower[0]));
+            }
+            catch (ArrayIndexOutOfBoundsException e) {
+                poly.polynomList.put(Integer.parseInt("0"), Integer.parseInt(coefAndPower[0]));
+            }
+        }
+        System.out.println("Polynom is: ");
+        poly.printPoly();
 
+        return poly;
+    }
 }
