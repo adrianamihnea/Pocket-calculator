@@ -2,13 +2,15 @@ package org.example;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class GUI extends JPanel {
+public class GUI extends JPanel implements ActionListener {
 
-    JTextField tf1;
-    JTextField tf2;
+    JTextField tf1, tf2, tf3;
+    JButton b1, b2, b3, b4, b5, b6;
     public GUI() {
         JFrame frame = new JFrame ("Calculator polinomial");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -23,7 +25,7 @@ public class GUI extends JPanel {
         tf1.setColumns(20);
         tf2 = new JTextField();
         tf2.setColumns(20);
-        JTextField tf3 = new JTextField();
+        tf3 = new JTextField();
         tf3.setColumns(20);
         panel1.add(l1);
         panel1.add(tf1);
@@ -32,12 +34,18 @@ public class GUI extends JPanel {
         panel4.add(l3);
         panel4.add(tf3);
         JPanel panel3 = new JPanel();
-        JButton b1 = new JButton("Adunare");
-        JButton b2 = new JButton("Scadere");
-        JButton b3 = new JButton("Inmultire");
-        JButton b4 = new JButton("Impartire");
-        JButton b5 = new JButton("Derivata");
-        JButton b6 = new JButton("Integrala");
+        b1 = new JButton("Adunare");
+        b1.addActionListener(this);
+        b2 = new JButton("Scadere");
+        b2.addActionListener(this);
+        b3 = new JButton("Inmultire");
+        b3.addActionListener(this);
+        b4 = new JButton("Impartire");
+        b4.addActionListener(this);
+        b5 = new JButton("Derivata");
+        b5.addActionListener(this);b6 = new JButton("Integrala");
+        b6.addActionListener(this);
+        // if source == button 1 -> se face o anumita operatie
         panel3.add(b1);
         panel3.add(b2);
         panel3.add(b3);
@@ -55,7 +63,7 @@ public class GUI extends JPanel {
         frame.setVisible(true);
 
         tf1.setText("2x^2+4x^3");
-        tf2.setText("5x^6+7");
+        tf2.setText("5x^6+7x");
         setMapFromRegex(tf1);
         setMapFromRegex(tf2);
     }
@@ -87,5 +95,47 @@ public class GUI extends JPanel {
         poly.printPoly();
 
         return poly;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        Polynom poly1 = new Polynom();
+        Polynom poly2 = new Polynom();
+
+        poly1 = this.setMapFromRegex(tf1);
+        poly2 = this.setMapFromRegex(tf2);
+
+        Object source = e.getSource();
+
+        if(source == b1) {
+            String result = org.example.Operations.addPoly(poly1, poly2).toString();
+            tf3.setText(result);
+        }
+
+        if(source == b2) {
+            String result = org.example.Operations.substractPoly(poly1, poly2).toString();
+            tf3.setText(result);
+        }
+
+        if(source == b3) {
+            String result = org.example.Operations.multiplyPoly(poly1, poly2).toString();
+            tf3.setText(result);
+        }
+
+        if(source == b4) {
+            String result = org.example.Operations.dividePoly(poly1, poly2).toString();
+            tf3.setText(result);
+        }
+
+        if(source == b5) {
+            String result = org.example.Operations.derivativePoly(poly1).toString();
+            tf3.setText(result);
+        }
+
+        if(source == b6) {
+            String result = org.example.Operations.integratePoly(poly1).toString();
+            tf3.setText(result);
+        }
     }
 }
