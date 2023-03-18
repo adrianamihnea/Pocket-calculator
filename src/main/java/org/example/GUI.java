@@ -85,10 +85,11 @@ public class GUI extends JPanel implements ActionListener {
                 coefAndPower = matcher.group(1).split("x\\^?", 2);
                 if(coefAndPower[1] == "")
                     coefAndPower[1] = "1";
-                poly.polynomList.put(Integer.parseInt(coefAndPower[1]), Integer.parseInt(coefAndPower[0]));
+                System.out.println(coefAndPower[0]);
+                poly.polynomList.put(Integer.parseInt(coefAndPower[1]), Double.parseDouble(coefAndPower[0]));
             }
             catch (ArrayIndexOutOfBoundsException e) {
-                poly.polynomList.put(Integer.parseInt("0"), Integer.parseInt(coefAndPower[0]));
+                poly.polynomList.put(Integer.parseInt("0"), Double.parseDouble(coefAndPower[0]));
             }
         }
         System.out.println("Polynom is: ");

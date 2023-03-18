@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Polynom {
 
-    Map<Integer, Integer> polynomList;
+    Map<Integer, Double> polynomList;
 
     public Polynom() {
         // add string as parameter and use regex to split up the string into the map
@@ -27,6 +27,9 @@ public class Polynom {
             //res = this.polynomList.get(pow) + "x^" + pow;
             power = pow.toString();
             coef = this.polynomList.get(pow).toString();
+            if(coef.substring(coef.length()-2,coef.length()).equals(".0")) {
+                coef = coef.substring(0, coef.length()-2);
+            }
             if(result != null && this.polynomList.get(pow) > 0)
                 result =  result + "+";
             if(pow == 0) {

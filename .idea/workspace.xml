@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ffc51c4-d5fe-4d50-a4ec-2c6c7bbdba10" name="Changes" comment="Implemented setMapFromRegex function, now the strings from the GUI are put in Polynom objects&#10;Created toString method for Polynom class, not fully functional yet, have to treat corner cases">
+    <list default="true" id="6ffc51c4-d5fe-4d50-a4ec-2c6c7bbdba10" name="Changes" comment="Implemented multiply, division, derivate and integrate.&#10;Resolved output appearance bugs.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Operations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Operations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Operations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Operations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Polynom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Polynom.java" afterDir="false" />
@@ -81,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678393217647</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Implemented multiply, division, derivate and integrate.&#10;Resolved output appearance bugs.">
+      <created>1678833968294</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678833968294</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -110,7 +117,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Implemented addition and substraction operations.&#10;Implemented the GUI without controller." />
     <MESSAGE value="Implemented setMapFromRegex function, now the strings from the GUI are put in Polynom objects&#10;Created toString method for Polynom class, not fully functional yet, have to treat corner cases" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented setMapFromRegex function, now the strings from the GUI are put in Polynom objects&#10;Created toString method for Polynom class, not fully functional yet, have to treat corner cases" />
+    <MESSAGE value="Implemented multiply, division, derivate and integrate.&#10;Resolved output appearance bugs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented multiply, division, derivate and integrate.&#10;Resolved output appearance bugs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
