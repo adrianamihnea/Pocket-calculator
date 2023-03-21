@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ffc51c4-d5fe-4d50-a4ec-2c6c7bbdba10" name="Changes" comment="Implemented multiply, division, derivate and integrate.&#10;Resolved output appearance bugs.">
+    <list default="true" id="6ffc51c4-d5fe-4d50-a4ec-2c6c7bbdba10" name="Changes" comment="Made values in map Double&#10;Trimmed the .0 for integers in the gui&#10;Issues at division and exceptions at parsing polynomials like x-3&#10;Junit test to be implemented">
+      <change afterPath="$PROJECT_DIR$/src/test/java/OperationsTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Operations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Operations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Operations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Operations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Polynom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Polynom.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,14 +51,77 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editor.preferences.import"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="OperationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="OperationsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OperationsTest.testAddition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="OperationsTest" />
+      <option name="METHOD_NAME" value="testAddition" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OperationsTest.testDerivative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="OperationsTest" />
+      <option name="METHOD_NAME" value="testDerivative" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OperationsTest.testIntegrate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="OperationsTest" />
+      <option name="METHOD_NAME" value="testIntegrate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OperationsTest.testMultiply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="OperationsTest" />
+      <option name="METHOD_NAME" value="testMultiply" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.OperationsTest" />
+        <item itemvalue="JUnit.OperationsTest.testIntegrate" />
+        <item itemvalue="JUnit.OperationsTest.testDerivative" />
+        <item itemvalue="JUnit.OperationsTest.testMultiply" />
+        <item itemvalue="JUnit.OperationsTest.testAddition" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -88,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678833968294</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Made values in map Double&#10;Trimmed the .0 for integers in the gui&#10;Issues at division and exceptions at parsing polynomials like x-3&#10;Junit test to be implemented">
+      <created>1679176514415</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679176514415</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,7 +189,8 @@
     <MESSAGE value="Implemented addition and substraction operations.&#10;Implemented the GUI without controller." />
     <MESSAGE value="Implemented setMapFromRegex function, now the strings from the GUI are put in Polynom objects&#10;Created toString method for Polynom class, not fully functional yet, have to treat corner cases" />
     <MESSAGE value="Implemented multiply, division, derivate and integrate.&#10;Resolved output appearance bugs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented multiply, division, derivate and integrate.&#10;Resolved output appearance bugs." />
+    <MESSAGE value="Made values in map Double&#10;Trimmed the .0 for integers in the gui&#10;Issues at division and exceptions at parsing polynomials like x-3&#10;Junit test to be implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made values in map Double&#10;Trimmed the .0 for integers in the gui&#10;Issues at division and exceptions at parsing polynomials like x-3&#10;Junit test to be implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

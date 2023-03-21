@@ -1,8 +1,10 @@
 package org.example;
 
+import java.util.Collections;
+
 public class Operations {
 
-    static Polynom addPoly(Polynom p1, Polynom p2) {
+    public static Polynom addPoly(Polynom p1, Polynom p2) {
         Polynom result =  new Polynom();
         for(Integer pow = 1; pow < 50; pow++) {
             Double coef1 = p1.polynomList.get(pow);
@@ -15,7 +17,7 @@ public class Operations {
         return result;
     }
 
-    static Polynom substractPoly(Polynom p1, Polynom p2) {
+    public static Polynom substractPoly(Polynom p1, Polynom p2) {
         Polynom result =  new Polynom();
         for(Integer pow = 1; pow < 50; pow++) {
             Double coef1 = p1.polynomList.get(pow);
@@ -28,7 +30,7 @@ public class Operations {
         return result;
     }
 
-    static Polynom multiplyPoly(Polynom p1, Polynom p2) {
+    public static Polynom multiplyPoly(Polynom p1, Polynom p2) {
         Polynom result =  new Polynom();
         for(Integer pow1 : p1.polynomList.keySet()) {
             for(Integer pow2 : p2.polynomList.keySet()) {
@@ -51,34 +53,44 @@ public class Operations {
         return result;
     }
 
-    static Polynom dividePoly(Polynom p1, Polynom p2) {
-        Polynom q = new Polynom();
-        Polynom t = new Polynom();
-        if (p2.polynomList != null) {
-            q.polynomList.put(0, (double) 0);
-            Polynom r = p1;
-            Integer degR = (Integer) p1.polynomList.keySet().toArray()[r.polynomList.size()-1];
-            Integer degP2 = (Integer) p2.polynomList.keySet().toArray()[p2.polynomList.size()-1];
-            //System.out.println(degR + " " + degP2);
-            Double coefR = r.polynomList.get(degR);
-            //if(coefR == null) coefR=0d;
-            Double coefP2 = p2.polynomList.get(degP2);
-            //if(coefP2 == null) coefP2=0d;
-            //System.out.println(coefR + " " + coefP2);
+    static Polynom dividePoly(Polynom p, Polynom q) {
 
-            // to do : resolve null pointer exception here
-            while (r.polynomList.isEmpty() == false && degR > degP2) {
-                Double term = coefR / coefP2;
-                t.polynomList.put(0, term);
-                q = Operations.addPoly(q, t);
-                r = Operations.substractPoly(r, Operations.multiplyPoly(t, p2));
+        Collections.sort(p.polynomList, Collections.reverseOrder());
+        Collections.sort(q.polynomList, Collections.reverseOrder());
 
-            }
-       }
-        return q;
+
+        for(Integer degree : p.polynomList.keySet().rever) {
+            System.out.println(degree);
+        }
+        return p;
+
+//        Polynom q = new Polynom();
+//        Polynom t = new Polynom();
+//        if (p2.polynomList != null) {
+//            q.polynomList.put(0, (double) 0);
+//            Polynom r = p1;
+//            Integer degR = (Integer) p1.polynomList.keySet().toArray()[r.polynomList.size()-1];
+//            Integer degP2 = (Integer) p2.polynomList.keySet().toArray()[p2.polynomList.size()-1];
+//            //System.out.println(degR + " " + degP2);
+//            Double coefR = r.polynomList.get(degR);
+//            //if(coefR == null) coefR=0d;
+//            Double coefP2 = p2.polynomList.get(degP2);
+//            //if(coefP2 == null) coefP2=0d;
+//            //System.out.println(coefR + " " + coefP2);
+//
+//            // to do : resolve null pointer exception here
+//            while (r.polynomList.isEmpty() == false && degR >= degP2) {
+//                Double term = coefR / coefP2;
+//                t.polynomList.put(degR-degP2, term);
+//                q = Operations.multiplyPoly(t, p2);
+//                r = Operations.substractPoly(r, q);
+//
+//            }
+//       }
+//        return q;
     }
 
-    static Polynom derivativePoly (Polynom p) {
+    public static Polynom derivativePoly(Polynom p) {
         Polynom result =  new Polynom();
         for(Integer pow : p.polynomList.keySet()) {
             if(pow == 0) {
@@ -91,7 +103,7 @@ public class Operations {
         return result;
     }
 
-    static Polynom integratePoly (Polynom p) {
+    public static Polynom integratePoly(Polynom p) {
         Polynom result =  new Polynom();
         for(Integer pow : p.polynomList.keySet()) {
             double coef = p.polynomList.get(pow) / (pow+1);

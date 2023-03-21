@@ -85,6 +85,8 @@ public class GUI extends JPanel implements ActionListener {
                 coefAndPower = matcher.group(1).split("x\\^?", 2);
                 if(coefAndPower[1] == "")
                     coefAndPower[1] = "1";
+                if(coefAndPower[0] == "")
+                    coefAndPower[0] = "0";
                 System.out.println(coefAndPower[0]);
                 poly.polynomList.put(Integer.parseInt(coefAndPower[1]), Double.parseDouble(coefAndPower[0]));
             }
