@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ffc51c4-d5fe-4d50-a4ec-2c6c7bbdba10" name="Changes" comment="Implemented junit class with methods for every method from Operations class ; &#10;Division to me remade and documentation to be started">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Operations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Operations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Polynom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Polynom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OperationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OperationsTest.java" afterDir="false" />
+    <list default="true" id="6ffc51c4-d5fe-4d50-a4ec-2c6c7bbdba10" name="Changes" comment="Workspace in final phase for presentation">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Operations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Polynom.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679433225554</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Workspace in final phase for presentation">
+      <created>1679770660928</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679770660928</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,7 +203,8 @@
     <MESSAGE value="Implemented multiply, division, derivate and integrate.&#10;Resolved output appearance bugs." />
     <MESSAGE value="Made values in map Double&#10;Trimmed the .0 for integers in the gui&#10;Issues at division and exceptions at parsing polynomials like x-3&#10;Junit test to be implemented" />
     <MESSAGE value="Implemented junit class with methods for every method from Operations class ; &#10;Division to me remade and documentation to be started" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented junit class with methods for every method from Operations class ; &#10;Division to me remade and documentation to be started" />
+    <MESSAGE value="Workspace in final phase for presentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Workspace in final phase for presentation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
