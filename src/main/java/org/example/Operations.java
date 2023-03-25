@@ -1,12 +1,12 @@
 package org.example;
 
-import java.util.Collections;
+import java.util.TreeMap;
 
 public class Operations {
 
     public static Polynom addPoly(Polynom p1, Polynom p2) {
         Polynom result =  new Polynom();
-        for(Integer pow = 1; pow < 50; pow++) {
+        for(Integer pow = 0; pow < 50; pow++) {
             Double coef1 = p1.polynomList.get(pow);
             coef1 = (coef1 == null ? 0 : coef1);
             Double coef2 = p2.polynomList.get(pow);
@@ -19,7 +19,7 @@ public class Operations {
 
     public static Polynom substractPoly(Polynom p1, Polynom p2) {
         Polynom result =  new Polynom();
-        for(Integer pow = 1; pow < 50; pow++) {
+        for(Integer pow = 0; pow < 50; pow++) {
             Double coef1 = p1.polynomList.get(pow);
             coef1 = (coef1 == null ? 0 : coef1);
             Double coef2 = p2.polynomList.get(pow);
@@ -53,41 +53,40 @@ public class Operations {
         return result;
     }
 
-    static Polynom dividePoly(Polynom p, Polynom q) {
+    public static String dividePoly(Polynom p, Polynom q) {
 
-        Collections.sort(p.polynomList, Collections.reverseOrder());
-        Collections.sort(q.polynomList, Collections.reverseOrder());
+        Polynom quotient = new Polynom();
+        Polynom remainder = new Polynom();
 
+        TreeMap<Integer, Double> polyP = new TreeMap<>();
+        System.out.println(p.polynomList);
+        polyP.putAll(p.polynomList);
+        TreeMap<Integer, Double> polyQ = new TreeMap<>();
+        polyQ.putAll(q.polynomList);
 
-        for(Integer degree : p.polynomList.keySet().rever) {
-            System.out.println(degree);
+        System.out.println(polyP);
+        System.out.println(polyQ);
+        while (polyP.lastKey() >= polyQ.lastKey()) {
+
+            Integer key = Integer.parseInt(polyP.lastKey().toString()) - Integer.parseInt(polyQ.lastKey().toString());
+            Double coefficient = Double.parseDouble(polyP.get(polyP.lastKey()).toString()) /
+                    Double.parseDouble(polyQ.get(polyQ.lastKey()).toString());
+            Polynom monomial = new Polynom();
+            monomial.polynomList.put(key, coefficient);
+            quotient.polynomList.put(key, coefficient);
+
+            remainder = Operations.multiplyPoly(monomial, q);
+            monomial.polynomList.clear();
+            remainder = Operations.substractPoly(p, remainder);
+
+            p = remainder;
+            polyP.clear();
+            polyP.putAll(p.polynomList);
+            System.out.println(p);
         }
-        return p;
 
-//        Polynom q = new Polynom();
-//        Polynom t = new Polynom();
-//        if (p2.polynomList != null) {
-//            q.polynomList.put(0, (double) 0);
-//            Polynom r = p1;
-//            Integer degR = (Integer) p1.polynomList.keySet().toArray()[r.polynomList.size()-1];
-//            Integer degP2 = (Integer) p2.polynomList.keySet().toArray()[p2.polynomList.size()-1];
-//            //System.out.println(degR + " " + degP2);
-//            Double coefR = r.polynomList.get(degR);
-//            //if(coefR == null) coefR=0d;
-//            Double coefP2 = p2.polynomList.get(degP2);
-//            //if(coefP2 == null) coefP2=0d;
-//            //System.out.println(coefR + " " + coefP2);
-//
-//            // to do : resolve null pointer exception here
-//            while (r.polynomList.isEmpty() == false && degR >= degP2) {
-//                Double term = coefR / coefP2;
-//                t.polynomList.put(degR-degP2, term);
-//                q = Operations.multiplyPoly(t, p2);
-//                r = Operations.substractPoly(r, q);
-//
-//            }
-//       }
-//        return q;
+        return "quotient is: " + quotient + " ; remainder is: " + remainder;
+
     }
 
     public static Polynom derivativePoly(Polynom p) {

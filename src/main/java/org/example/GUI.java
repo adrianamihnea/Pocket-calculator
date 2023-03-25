@@ -62,8 +62,8 @@ public class GUI extends JPanel implements ActionListener {
         frame.setContentPane(p);
         frame.setVisible(true);
 
-        tf1.setText("2x^2+4x^3");
-        tf2.setText("5x^6+7x");
+        tf1.setText("x^3-2x^2-5");
+        tf2.setText("x^2-1");
         setMapFromRegex(tf1);
         setMapFromRegex(tf2);
     }
@@ -71,7 +71,7 @@ public class GUI extends JPanel implements ActionListener {
     public org.example.Polynom setMapFromRegex(JTextField tf) {
         org.example.Polynom poly = null;
         String stringPoly = tf.getText();
-        String polyPattern = "([+-]?(?:(?:\\d+x\\^\\d+)|(?:\\d+x)|(?:\\d+)|(?:x)))";
+        String polyPattern = "([+-]?[^-+]+)";
         Pattern pattern = Pattern.compile(polyPattern);
         Matcher matcher = pattern.matcher(stringPoly);
         poly = new org.example.Polynom();
@@ -82,21 +82,23 @@ public class GUI extends JPanel implements ActionListener {
             String[] coefAndPower = new String[2];
             try {
                 // matcher.group(1) - a group like 4x^2
+                System.out.println(matcher.group(1));
                 coefAndPower = matcher.group(1).split("x\\^?", 2);
-                if(coefAndPower[1] == "")
-                    coefAndPower[1] = "1";
-                if(coefAndPower[0] == "")
-                    coefAndPower[0] = "0";
-                System.out.println(coefAndPower[0]);
+                if(coefAndPower[1] == "") {
+                    // puterea 0
+                    coefAndPower[1] = "0";
+                }
                 poly.polynomList.put(Integer.parseInt(coefAndPower[1]), Double.parseDouble(coefAndPower[0]));
             }
             catch (ArrayIndexOutOfBoundsException e) {
                 poly.polynomList.put(Integer.parseInt("0"), Double.parseDouble(coefAndPower[0]));
             }
+            catch(NumberFormatException e) {
+                poly.polynomList.put(Integer.parseInt(coefAndPower[1]), Double.parseDouble("1.0"));
+            }
         }
-        System.out.println("Polynom is: ");
+        System.out.println("Poly is");
         poly.printPoly();
-
         return poly;
     }
 
@@ -127,7 +129,7 @@ public class GUI extends JPanel implements ActionListener {
         }
 
         if(source == b4) {
-            String result = org.example.Operations.dividePoly(poly1, poly2).toString();
+            String result = Operations.dividePoly(poly1, poly2);
             tf3.setText(result);
         }
 
