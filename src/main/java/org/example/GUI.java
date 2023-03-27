@@ -43,9 +43,9 @@ public class GUI extends JPanel implements ActionListener {
         b4 = new JButton("Impartire");
         b4.addActionListener(this);
         b5 = new JButton("Derivata");
-        b5.addActionListener(this);b6 = new JButton("Integrala");
+        b5.addActionListener(this);
+        b6 = new JButton("Integrala");
         b6.addActionListener(this);
-        // if source == button 1 -> se face o anumita operatie
         panel3.add(b1);
         panel3.add(b2);
         panel3.add(b3);
@@ -82,7 +82,6 @@ public class GUI extends JPanel implements ActionListener {
             String[] coefAndPower = new String[2];
             try {
                 // matcher.group(1) - a group like 4x^2
-                System.out.println(matcher.group(1));
                 coefAndPower = matcher.group(1).split("x\\^?", 2);
                 if(coefAndPower[1] == "") {
                     // puterea 0
@@ -91,9 +90,11 @@ public class GUI extends JPanel implements ActionListener {
                 poly.polynomList.put(Integer.parseInt(coefAndPower[1]), Double.parseDouble(coefAndPower[0]));
             }
             catch (ArrayIndexOutOfBoundsException e) {
+                // something like ax^0
                 poly.polynomList.put(Integer.parseInt("0"), Double.parseDouble(coefAndPower[0]));
             }
             catch(NumberFormatException e) {
+                // something like x^n
                 poly.polynomList.put(Integer.parseInt(coefAndPower[1]), Double.parseDouble("1.0"));
             }
         }

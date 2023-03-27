@@ -59,13 +59,10 @@ public class Operations {
         Polynom remainder = new Polynom();
 
         TreeMap<Integer, Double> polyP = new TreeMap<>();
-        System.out.println(p.polynomList);
         polyP.putAll(p.polynomList);
         TreeMap<Integer, Double> polyQ = new TreeMap<>();
         polyQ.putAll(q.polynomList);
 
-        System.out.println(polyP);
-        System.out.println(polyQ);
         while (polyP.lastKey() >= polyQ.lastKey()) {
 
             Integer key = Integer.parseInt(polyP.lastKey().toString()) - Integer.parseInt(polyQ.lastKey().toString());
@@ -82,7 +79,6 @@ public class Operations {
             p = remainder;
             polyP.clear();
             polyP.putAll(p.polynomList);
-            System.out.println(p);
         }
 
         return "quotient is: " + quotient + " ; remainder is: " + remainder;
